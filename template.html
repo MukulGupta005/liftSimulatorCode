@@ -22,8 +22,8 @@
 
 <body>
     <header>
-        <h1>Lift Simulator</h1>
-        <div class="add-btns">
+        <h1 style="align-items: center;">Lift Simulator</h1>
+        <!-- <div class="add-btns">
             <button class="add-floor-btn" data-lift-num="4">
                 <i class="fa-solid fa-plus"></i>
                 Floor
@@ -31,7 +31,7 @@
             <button class="add-lift-btn" data-lift-num="4">
                 <i class="fa-solid fa-plus"></i>
                 Lift
-            </button> 
+            </button>  -->
         </div>
     </header>
 
@@ -40,9 +40,6 @@
             <div class="lift-buttons">
                 <button class="call-lift-btn open-lift-btn" data-lift-num="0">
                     <i class="fa-solid fa-angle-up"></i>
-                </button>
-                <button class="call-lift-btn close-lift-btn" data-lift-num="0">
-                    <i class="fa-solid fa-angle-down"></i>
                 </button>
             </div>
             <div class="lift-container">
@@ -63,7 +60,12 @@
             const floors = parseInt(localStorage.getItem('floors'));
             const lifts = parseInt(localStorage.getItem('lifts'));
             for (let i = 0; i < floors; i++) {
-                addFloor();
+                if(i=== floors-1){
+                    addFloorl();
+                }
+                else{
+                    addFloor();
+                }
             }
             for (let i = 0; i < lifts; i++) {
                 addLift();

@@ -203,6 +203,30 @@ function getLiftEl() {
 }
 
 function addFloor() {
+  floorsContainer.prepend(getFloorE());
+  floors = document.querySelectorAll(".floor");
+  buttons = document.querySelectorAll(".call-lift-btn");
+  addCallLiftListeners([buttons[0], buttons[1]]);
+}
+
+function getFloorE() {
+  const newLiftNum = floors.length;
+
+  const floorEl = document.createElement("div");
+  floorEl.classList.add("floor");
+  floorEl.innerHTML += `
+                  <div class="lift-buttons">
+                      <button class="call-lift-btn open-lift-btn" data-lift-num="${newLiftNum}">
+                          <i class="fa-solid fa-angle-up"></i>
+                      </button>
+                      <button class="call-lift-btn close-lift-btn" data-lift-num="${newLiftNum}">
+                          <i class="fa-solid fa-angle-down"></i>
+                      </button>
+                  </div>
+                `;
+  return floorEl;
+}
+function addFloorl() {
   floorsContainer.prepend(getFloorEl());
   floors = document.querySelectorAll(".floor");
   buttons = document.querySelectorAll(".call-lift-btn");
@@ -216,9 +240,6 @@ function getFloorEl() {
   floorEl.classList.add("floor");
   floorEl.innerHTML += `
                   <div class="lift-buttons">
-                      <button class="call-lift-btn open-lift-btn" data-lift-num="${newLiftNum}">
-                          <i class="fa-solid fa-angle-up"></i>
-                      </button>
                       <button class="call-lift-btn close-lift-btn" data-lift-num="${newLiftNum}">
                           <i class="fa-solid fa-angle-down"></i>
                       </button>
